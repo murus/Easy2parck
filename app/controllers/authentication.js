@@ -77,7 +77,7 @@
                   }
 
                   if(!isMatch){
-                      return res.status(400).send({error: 'Login failed. Incorrect email and password.',status:"false"});
+                      return res.status(201).send({error: 'Login failed. Incorrect email and password.',status:"false"});
 
 
                   }
