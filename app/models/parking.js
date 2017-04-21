@@ -149,7 +149,7 @@
 
 
                           if(price){
-                              query = query.where('price').gte(price);
+                              query = query.where('price').lte(price);
                           }
                           
 
