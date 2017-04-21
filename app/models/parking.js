@@ -133,6 +133,7 @@
                           var long = data.longitude;
                           var distance = data.distance;
                           var price = data.price;
+                          var userRatting = data.userRatting;
 
                           // Opens a generic Mongoose Query. Depending on the post body we will...
                           var query = this.find({});
@@ -143,12 +144,17 @@
                                 query = query.where('location').near({ center: {type: 'Point', coordinates: [long, lat]},
 
                                // Converting meters to miles. Specifying spherical geometry (for globe)
-                                maxDistance: distance * 1609.34, spherical: true});
+                                maxDistance: distance, spherical: true});
                           }
 
 
                           if(price){
                               query = query.where('price').gte(price);
+                          }
+                          
+
+                          if(userRatting){            
+                            query = query.where('userRatting').equals(userRatting);        
                           }
 
 
